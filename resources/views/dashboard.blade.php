@@ -167,8 +167,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="typing-effect">Selamat datang di Dashboard Kolaborasi Web!</h1>
-                <p class="lead">Halo, {{ Auth::user()->name }}. Anda berhasil login ke sistem kolaborasi ini.</p>
+                <h1 class="typing-effect">Welcome to TaskSphere!</h1>
+                <p class="lead">Halo, {{ Auth::user()->name }}. Anda berhasil login ke TaskSphere.</p>
             </div>
         </div>
         
