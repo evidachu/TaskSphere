@@ -123,19 +123,23 @@
                         end: end
                     },
                     success: function(response) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Berhasil!',
-                            text: response.message,
-                            timer: 3000,
-                            showConfirmButton: false
-                        });
-                        $('#eventForm')[0].reset();  // Reset form
-                        $('#teamCommunicationModal').modal('hide');  // Menutup modal
-                        $('body').removeClass('modal-open');  // Hapus kelas modal-open
-                        $('.modal-backdrop').remove();  // Hapus backdrop modal
-                        calendar.refetchEvents();  // Refresh kalender
-                    },
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: response.message,
+                        timer: 3000,
+                        showConfirmButton: false
+                    });
+                    $('#eventForm')[0].reset();  // Reset form
+                    $('#teamCommunicationModal').modal('hide');  // Menutup modal
+                    $('body').removeClass('modal-open');  // Hapus kelas modal-open
+                    $('.modal-backdrop').remove();  // Hapus backdrop modal
+                    calendar.refetchEvents();  // Refresh kalender
+
+                    // Reload halaman untuk memastikan data terbaru ditampilkan
+                    location.reload();  // Ini akan memuat ulang halaman dan memastikan perubahan diterapkan
+                },
+
                     error: function(xhr, status, error) {
                         alert('Terjadi kesalahan saat menyimpan event.');
                     }
