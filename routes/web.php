@@ -3,7 +3,6 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EventController;
-use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,10 +20,13 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
 
-// Rute untuk events
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/fetch', [EventController::class, 'fetchEvents'])->name('events.fetch');
 
-// Rute untuk tasks
+// routes/web.php
 
-Route::resource('tasks', TaskController::class);
+Route::get('/events', [EventController::class, 'index']);  // GET untuk mengambil event
+Route::post('/events', [EventController::class, 'store']);  // POST untuk menyimpan event
+
+
+
+
+

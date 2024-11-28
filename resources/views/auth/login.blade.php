@@ -75,7 +75,7 @@
 <body>
     <div class="login-container">
         <!-- Judul -->
-        <h1>LearnTogether</h1>
+        <h1>TashSphere</h1>
         
         <!-- Form Login -->
         <form method="POST" action="{{ route('login') }}">
