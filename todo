@@ -1,0 +1,13 @@
+5. Berbagi Sumber Daya Akademis (Anggota 5)
+Implementasi:
+
+Form: Upload file baru (judul, deskripsi, file).
+JavaScript: Validasi upload file.
+File Handling: Simpan file di server dengan path tersimpan di database.
+CRUD:
+Tambah, lihat, edit, dan hapus file materi.
+Database: Tabel sumber daya (resources).
+MVC:
+Model: Query untuk materi pembelajaran.
+Controller: Logika untuk unggah file dan CRUD. bisa
+View: Halaman untuk daftar materi.
