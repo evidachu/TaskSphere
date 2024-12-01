@@ -1,39 +1,102 @@
 <?php
 
-// app/Http/Controllers/EventController.php
 namespace App\Http\Controllers;
 
-use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class EventController extends Controller
 {
+    // 1. Mengambil semua event
+    public function index()
+    {
+        $events = Event::all();
+        return response()->json($events);
+    }
+
+    // 2. Mengambil detail satu event
+    public function show($id)
+    {
+        $event = Event::find($id);
+
+        if ($event) {
+            return response()->json($event);
+        } else {
+            return response()->json(['error' => 'Event not found'], 404);
+        }
+    }
+
+    // 3. Menyimpan event baru
     public function store(Request $request)
     {
-        // Validasi input
         $request->validate([
             'title' => 'required|string|max:255',
-            'description' => 'required|string',
+            'description' => 'nullable|string',
             'start' => 'required|date',
             'end' => 'required|date|after_or_equal:start',
         ]);
 
-        // Simpan event ke database
-        $event = new Event();
-        $event->title = $request->title;
-        $event->description = $request->description;
-        $event->start = $request->start;
-        $event->end = $request->end;
-        $event->save();
+        $event = Event::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'start' => $request->start,
+            'end' => $request->end,
+        ]);
 
-        // Mengembalikan response JSON sukses, tidak ada redirect ke dashboard
-        return response()->json(['message' => 'Event berhasil disimpan!']);
+        return response()->json($event, 201);
     }
 
-    public function index()
+    // 4. Memperbarui event yang sudah ada
+    public function update(Request $request, $id)
 {
-    $events = Event::all();
-    return response()->json($events);
+    $event = Event::find($id);
+
+    if (!$event) {
+        return response()->json(['error' => 'Event not found'], 404);
+    }
+
+    // Validasi input
+    $request->validate([
+        'title' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'start' => 'required|date',
+        'end' => 'required|date|after_or_equal:start',
+    ]);
+
+    // Update data event
+    $event->update([
+        'title' => $request->title,
+        'description' => $request->description,
+        'start' => $request->start,
+        'end' => $request->end,
+    ]);
+
+    return response()->json(['message' => 'Event updated successfully', 'event' => $event]);
 }
 
+
+    // 5. Menghapus event
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+
+        if (!$event) {
+            return response()->json(['error' => 'Event not found'], 404);
+        }
+
+        $event->delete();
+        return response()->json(['message' => 'Event deleted successfully']);
+    }
+
+
+public function showModal()
+    {
+        // Mengembalikan tampilan modal
+        return view('components.4-modal'); // Pastikan path ini benar
+    }
+
+
+
 }
+
+

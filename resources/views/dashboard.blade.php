@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard | Kolaborasi Web</title>
+    <title>Dashboard | TaskSphere</title>
 
     <!-- Meta CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -145,7 +145,7 @@
 <!-- Header with User Info and Logout -->
 <div class="header-bar">
     <div class="container d-flex justify-content-between align-items-center">
-        <h4>Dashboard Kolaborasi Web</h4>
+        <h4>Dashboard Manage Task</h4>
         <div class="d-flex align-items-center">
             <!-- Menampilkan Nama Pengguna -->
             <span class="me-3">Halo, {{ Auth::user()->name }}</span>
@@ -167,8 +167,8 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="typing-effect">Selamat datang di Dashboard Kolaborasi Web!</h1>
-                <p class="lead">Halo, {{ Auth::user()->name }}. Anda berhasil login ke sistem kolaborasi ini.</p>
+                <h1 class="typing-effect">Selamat datang di TaskSphere</h1>
+                <p class="lead">Halo, {{ Auth::user()->name }}. Anda berhasil login!</p>
             </div>
         </div>
         
@@ -210,18 +210,17 @@
 
                 <!-- Card 3 -->
                 <div class="col-12 col-sm-6 col-md-4">
-                    <div class="card shadow-lg rounded-3" style="transition: all 0.3s ease;">
-                        <div class="card-header text-center">
-                            <i class="fas fa-share-alt fa-3x text-success mb-3"></i>
-                            <h4>FITUR 3</h4>
-                        </div>
-                        <div class="card-body text-center">
-                            <p>Bagikan dan unduh file dengan aman melalui fitur ini.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fileSharingModal">Lihat File</button>
-                        </div>
-                    </div>
-                </div>
-
+    <div class="card shadow-lg rounded-3" style="transition: all 0.3s ease;">
+        <div class="card-header text-center">
+            <i class="fas fa-share-alt fa-3x text-success mb-3"></i>
+            <h4>Manage File</h4>
+        </div>
+        <div class="card-body text-center">
+            <p>Manage dan unduh file dengan aman melalui fitur ini.</p>
+            <a href="{{ route('materi.index') }}" class="btn btn-primary">Kelola File</a>
+        </div>
+    </div>
+</div>
                 <!-- Card 4: Kalender & Manajemen Waktu Kolaboratif (Updated) -->
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="card shadow-lg rounded-3" style="transition: all 0.3s ease;">
@@ -231,7 +230,7 @@
                         </div>
                         <div class="card-body text-center">
                             <p>Kelola jadwal Anda dengan fitur kalender dan manajemen waktu.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teamCommunicationModal">Lihat Kalender</button>
+                            <a href="{{ route('components.4-modal') }}" class="btn btn-primary">Lihat Kalender</a>
                         </div>
                     </div>
                 </div>
@@ -310,8 +309,7 @@
     </div>
 
     <!-- Modal 4: Kalender & Manajemen Waktu Kolaboratif -->
-    <!-- Include Modal -->
-@include('components.4-modal')
+    <!-- Include Modal 
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
