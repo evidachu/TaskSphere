@@ -20,10 +20,10 @@
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet" />
 
-
+    
 </head>
 <body>
-
+    
     <!-- Custom CSS (optional, jika perlu custom style) -->
     <style>
     /* Container Dashboard */
@@ -147,13 +147,10 @@
     <div class="container d-flex justify-content-between align-items-center">
         <h4>Dashboard Manage Task</h4>
         <div class="d-flex align-items-center">
-            <h4 class="me-3 text-white"><a href="/dashboard" class="nav-link">Dashboard Kolaborasi Web</a></h4>
-            <a href="/materi" class="btn btn-light btn-sm me-2">Materi</a>
-        </div>
-
-        <!-- Right side: Profil and Logout -->
-        <div class="d-flex align-items-center ms-auto">
+            <!-- Menampilkan Nama Pengguna -->
             <span class="me-3">Halo, {{ Auth::user()->name }}</span>
+
+            <!-- Tombol Profil -->
             <a href="#" class="btn btn-light btn-sm me-2">Profil</a>
 
             <!-- Form Logout -->
@@ -163,6 +160,7 @@
             </form>
         </div>
     </div>
+</div>
 
 
 <div class="container-dashboard">
@@ -173,7 +171,7 @@
                 <p class="lead">Halo, {{ Auth::user()->name }}. Anda berhasil login!</p>
             </div>
         </div>
-
+        
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
