@@ -1,0 +1,26 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: #333;
+}
+
+.table a {
+    font-weight: bold;
+    text-decoration: none; /* Mencegah dekorasi default */
+}
+
+.progress-bar {
+    font-size: 14px;
+    color: white;
+    transition: width 0.4s ease-in-out; /* Properti CSS benar */
+}
+
+/* Progress Bar Dynamic */
+.progress-bar-dynamic {
+    background-color: #28a745; /* Warna hijau */
+    height: 100%; /* Tinggi progress bar */
+    border-radius: 5px; /* Radius untuk sudut */
+    transition: width 0.5s ease; /* Animasi transisi */
+}
