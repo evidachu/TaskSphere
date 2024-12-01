@@ -20,10 +20,10 @@
     <!-- FullCalendar CSS -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/main.min.css" rel="stylesheet" />
 
-    
+
 </head>
 <body>
-    
+
     <!-- Custom CSS (optional, jika perlu custom style) -->
     <style>
     /* Container Dashboard */
@@ -171,7 +171,7 @@
                 <p class="lead">Halo, {{ Auth::user()->name }}. Anda berhasil login!</p>
             </div>
         </div>
-        
+
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -194,7 +194,7 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
+                <!-- Card 2  -->
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="card shadow-lg rounded-3" style="transition: all 0.3s ease;">
                         <div class="card-header text-center">
@@ -203,7 +203,7 @@
                         </div>
                         <div class="card-body text-center">
                             <p>Mulai kerjakan project kolaborasi Anda dengan tim di sini.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#taskModal">Lihat Tugas</button>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target=gjbn>Lihat Tugas</button>
                         </div>
                     </div>
                 </div>
@@ -235,16 +235,16 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
+                <!-- Card 5 : Sistem Belajar Bersama -->
                 <div class="col-12 col-sm-6 col-md-4">
                     <div class="card shadow-lg rounded-3" style="transition: all 0.3s ease;">
                         <div class="card-header text-center">
                             <i class="fas fa-users fa-3x text-info mb-3"></i>
-                            <h4>FITUR 5</h4>
+                            <h4>Sistem Belajar Bersama</h4>
                         </div>
                         <div class="card-body text-center">
                             <p>Manfaatkan fitur ini untuk berkolaborasi secara efektif.</p>
-                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#teamCommunicationModal">Lihat Komunikasi</button>
+                            <a href="{{ route('group.index') }}" class="btn btn-primary">Lihat Komunikasi</a>
                         </div>
                     </div>
                 </div>
@@ -309,7 +309,7 @@
     </div>
 
     <!-- Modal 4: Kalender & Manajemen Waktu Kolaboratif -->
-    <!-- Include Modal 
+    <!-- Include Modal
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
