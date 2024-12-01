@@ -6,6 +6,15 @@ use App\Http\Controllers\MateriController;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Fitur1Controller;
+
+
+// fitur1
+Route::get('/', [Fitur1Controller::class, 'dashboard'])->name('dashboard');
+Route::get('/task/{id}', [Fitur1Controller::class, 'showTask'])->name('task.show');
+Route::post('/task', [Fitur1Controller::class, 'store'])->name('task.store');  // Route untuk store tugas baru
+Route::post('/task/{id}', [Fitur1Controller::class, 'updateTask'])->name('task.update');  // Update status tugas
+
 
 Route::get('/', function() {
     return redirect('/dashboard');
